@@ -9,7 +9,6 @@
     --color-red-100: oklch(0.936 0.032 17.717);
     --color-red-700: oklch(0.505 0.213 27.518);
     --color-green-100: oklch(0.962 0.044 156.743);
-    --color-green-500: oklch(0.723 0.219 149.579);
     --color-green-700: oklch(0.527 0.154 150.069);
     --color-teal-500: oklch(0.704 0.14 182.503);
     --color-blue-500: oklch(0.623 0.214 259.815);
@@ -281,9 +280,6 @@
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
-  .mr-1 {
-    margin-right: calc(var(--spacing) * 1);
-  }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
@@ -292,9 +288,6 @@
   }
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
-  }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
   }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
@@ -320,17 +313,11 @@
   .table {
     display: table;
   }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
-  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
-  }
-  .h-15 {
-    height: calc(var(--spacing) * 15);
   }
   .h-full {
     height: 100%;
@@ -536,9 +523,6 @@
   .bg-green-100 {
     background-color: var(--color-green-100);
   }
-  .bg-green-500 {
-    background-color: var(--color-green-500);
-  }
   .bg-red-100 {
     background-color: var(--color-red-100);
   }
@@ -568,9 +552,6 @@
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
-  }
-  .p-6 {
-    padding: calc(var(--spacing) * 6);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -1025,7 +1006,201 @@ td {
   to {
     transform: rotate(360deg);
   }
-}.rdrCalendarWrapper{
+}.rdrCalendarWrapper {
+  box-sizing: border-box;
+  background: #ffffff;
+  display: inline-flex;
+  flex-direction: column;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.rdrDateDisplay{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rdrDateDisplayItem{
+  flex: 1 1;
+  width: 0;
+  text-align: center;
+  color: inherit;
+}
+
+.rdrDateDisplayItem + .rdrDateDisplayItem{
+    margin-left: 0.833em;
+  }
+
+.rdrDateDisplayItem input{
+    text-align: inherit
+  }
+
+.rdrDateDisplayItem input:disabled{
+      cursor: default;
+    }
+
+.rdrDateDisplayItemActive{}
+
+.rdrMonthAndYearWrapper {
+  box-sizing: inherit;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rdrMonthAndYearPickers{
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rdrMonthPicker{}
+
+.rdrYearPicker{}
+
+.rdrNextPrevButton {
+  box-sizing: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.rdrPprevButton {}
+
+.rdrNextButton {}
+
+.rdrMonths{
+  display: flex;
+}
+
+.rdrMonthsVertical{
+  flex-direction: column;
+}
+
+.rdrMonthsHorizontal > div > div > div{
+  display: flex;
+  flex-direction: row;
+}
+
+.rdrMonth{
+  width: 27.667em;
+}
+
+.rdrWeekDays{
+  display: flex;
+}
+
+.rdrWeekDay {
+  flex-basis: calc(100% / 7);
+  box-sizing: inherit;
+  text-align: center;
+}
+
+.rdrDays{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rdrDateDisplayWrapper{}
+
+.rdrMonthName{}
+
+.rdrInfiniteMonths{
+  overflow: auto;
+}
+
+.rdrDateRangeWrapper{
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.rdrDateInput {
+  position: relative;
+}
+
+.rdrDateInput input {
+    outline: none;
+  }
+
+.rdrDateInput .rdrWarning {
+    position: absolute;
+    font-size: 1.6em;
+    line-height: 1.6em;
+    top: 0;
+    right: .25em;
+    color: #FF0000;
+  }
+
+.rdrDay {
+  box-sizing: inherit;
+  width: calc(100% / 7);
+  position: relative;
+  font: inherit;
+  cursor: pointer;
+}
+
+.rdrDayNumber {
+  display: block;
+  position: relative;
+}
+
+.rdrDayNumber span{
+    color: #1d2429;
+  }
+
+.rdrDayDisabled {
+  cursor: not-allowed;
+}
+
+@supports (-ms-ime-align: auto) {
+  .rdrDay {
+    flex-basis: 14.285% !important;
+  }
+}
+
+.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{
+  pointer-events: none;
+}
+
+.rdrInRange{}
+
+.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{
+  pointer-events: none;
+}
+
+.rdrDayHovered{}
+
+.rdrDayActive{}
+
+.rdrDateRangePickerWrapper{
+  display: inline-flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.rdrDefinedRangesWrapper{}
+
+.rdrStaticRanges{
+  display: flex;
+  flex-direction: column;
+}
+
+.rdrStaticRange{
+  font-size: inherit;
+}
+
+.rdrStaticRangeLabel{}
+
+.rdrInputRanges{}
+
+.rdrInputRange{
+  display: flex;
+}
+
+.rdrInputRangeInput{}
+.rdrCalendarWrapper{
   color: #000000;
   font-size: 12px;
 }
@@ -1410,197 +1585,3 @@ td {
   color: #849095;
   padding: 0.833em;
 }
-.rdrCalendarWrapper {
-  box-sizing: border-box;
-  background: #ffffff;
-  display: inline-flex;
-  flex-direction: column;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
-.rdrDateDisplay{
-  display: flex;
-  justify-content: space-between;
-}
-
-.rdrDateDisplayItem{
-  flex: 1 1;
-  width: 0;
-  text-align: center;
-  color: inherit;
-}
-
-.rdrDateDisplayItem + .rdrDateDisplayItem{
-    margin-left: 0.833em;
-  }
-
-.rdrDateDisplayItem input{
-    text-align: inherit
-  }
-
-.rdrDateDisplayItem input:disabled{
-      cursor: default;
-    }
-
-.rdrDateDisplayItemActive{}
-
-.rdrMonthAndYearWrapper {
-  box-sizing: inherit;
-  display: flex;
-  justify-content: space-between;
-}
-
-.rdrMonthAndYearPickers{
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rdrMonthPicker{}
-
-.rdrYearPicker{}
-
-.rdrNextPrevButton {
-  box-sizing: inherit;
-  cursor: pointer;
-  outline: none;
-}
-
-.rdrPprevButton {}
-
-.rdrNextButton {}
-
-.rdrMonths{
-  display: flex;
-}
-
-.rdrMonthsVertical{
-  flex-direction: column;
-}
-
-.rdrMonthsHorizontal > div > div > div{
-  display: flex;
-  flex-direction: row;
-}
-
-.rdrMonth{
-  width: 27.667em;
-}
-
-.rdrWeekDays{
-  display: flex;
-}
-
-.rdrWeekDay {
-  flex-basis: calc(100% / 7);
-  box-sizing: inherit;
-  text-align: center;
-}
-
-.rdrDays{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.rdrDateDisplayWrapper{}
-
-.rdrMonthName{}
-
-.rdrInfiniteMonths{
-  overflow: auto;
-}
-
-.rdrDateRangeWrapper{
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
-.rdrDateInput {
-  position: relative;
-}
-
-.rdrDateInput input {
-    outline: none;
-  }
-
-.rdrDateInput .rdrWarning {
-    position: absolute;
-    font-size: 1.6em;
-    line-height: 1.6em;
-    top: 0;
-    right: .25em;
-    color: #FF0000;
-  }
-
-.rdrDay {
-  box-sizing: inherit;
-  width: calc(100% / 7);
-  position: relative;
-  font: inherit;
-  cursor: pointer;
-}
-
-.rdrDayNumber {
-  display: block;
-  position: relative;
-}
-
-.rdrDayNumber span{
-    color: #1d2429;
-  }
-
-.rdrDayDisabled {
-  cursor: not-allowed;
-}
-
-@supports (-ms-ime-align: auto) {
-  .rdrDay {
-    flex-basis: 14.285% !important;
-  }
-}
-
-.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{
-  pointer-events: none;
-}
-
-.rdrInRange{}
-
-.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{
-  pointer-events: none;
-}
-
-.rdrDayHovered{}
-
-.rdrDayActive{}
-
-.rdrDateRangePickerWrapper{
-  display: inline-flex;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
-.rdrDefinedRangesWrapper{}
-
-.rdrStaticRanges{
-  display: flex;
-  flex-direction: column;
-}
-
-.rdrStaticRange{
-  font-size: inherit;
-}
-
-.rdrStaticRangeLabel{}
-
-.rdrInputRanges{}
-
-.rdrInputRange{
-  display: flex;
-}
-
-.rdrInputRangeInput{}
