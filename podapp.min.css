@@ -378,11 +378,17 @@
   .h-full {
     height: 100%;
   }
+  .max-h-\[65vh\] {
+    max-height: 65vh;
+  }
   .max-h-\[70vh\] {
     max-height: 70vh;
   }
   .max-h-\[80vh\] {
     max-height: 80vh;
+  }
+  .max-h-\[85vh\] {
+    max-height: 85vh;
   }
   .max-h-\[95vh\] {
     max-height: 95vh;
@@ -507,6 +513,9 @@
   }
   .justify-end {
     justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
